@@ -6,8 +6,11 @@ export default {
   ],
   theme: {
     extend: {
+      container: {
+        center: true,
+        padding: '1rem',
+     },
       colors: {
-        // Görseldeki renk paleti
         'primary-blue': '#23A6F0',
         'success-green': '#23856D',
         'alert-orange': '#E77C40',
@@ -22,3 +25,4 @@ export default {
   },
   plugins: [],
 }
+
