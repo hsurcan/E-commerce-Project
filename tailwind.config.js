@@ -8,8 +8,14 @@ export default {
     extend: {
       container: {
         center: true,
-        padding: '1rem',
-     },
+        padding: {
+        DEFAULT: '2rem',     
+        sm: '3rem',
+        lg: '4rem',
+        xl: '5rem',
+        '2xl': '8rem',      
+      },
+      }, 
       colors: {
         'primary-blue': '#23A6F0',
         'success-green': '#23856D',
@@ -17,6 +23,7 @@ export default {
         'dark-blue': '#252B42',
         'second-text': '#737373',
         'light-gray': '#FAFAFA',
+        'hover-color': '#2A7CC7',
       },
       fontFamily: {
         'montserrat': ['Montserrat', 'sans-serif'],
@@ -25,4 +32,3 @@ export default {
   },
   plugins: [],
 }
-

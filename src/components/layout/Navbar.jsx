@@ -1,51 +1,75 @@
-import { FiSearch, FiShoppingCart, FiHeart, FiUser, FiMenu } from "react-icons/fi";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { FiUser, FiSearch, FiShoppingCart, FiHeart, FiMenu, FiX } from "react-icons/fi";
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <nav className="bg-white px-6 md:px-10 py-5">
-      {/* Üst Kısım: Logo ve İkonlar/Menü */}
-      <div className="flex justify-between items-center mb-6 md:mb-0">
-        <div className="text-3xl font-bold text-dark-blue">Bandage</div>
+    <nav className="bg-white py-6">
+      <div className="container flex md:items-center justify-between">
         
-        {/* Mobilde sağda burger menü ikonu */}
-        <div className="md:hidden text-3xl text-dark-blue">
-          <FiMenu />
+        <div className="flex md:items-center gap-12 lg:gap-20">
+          <Link to="/" className="text-2xl font-bold text-dark-blue">Bandage</Link>
+
+          <ul className="hidden lg:flex items-center gap-6 text-sm font-bold text-second-text">
+            <li><Link to="/" className="hover:text-primary-blue">Home</Link></li>
+            <li><Link to="/shop" className="hover:text-primary-blue">Shop</Link></li>
+            <li><Link to="/about" className="hover:text-primary-blue">About</Link></li>
+            <li><Link to="/blog" className="hover:text-primary-blue">Blog</Link></li>
+            <li><Link to="/contact" className="hover:text-primary-blue">Contact</Link></li>
+          </ul>
         </div>
-      </div>
 
-      {/* Menü İçeriği - Mobilde dikey liste */}
-      <div className="flex flex-col md:flex-row md:justify-between items-center gap-8 md:gap-0">
-        
-        {/* Navigasyon Linkleri - Mobilde dikey, md'den sonra yatay */}
-        <ul className="flex flex-col md:flex-row gap-6 md:gap-5 text-center md:text-left text-2xl md:text-base text-second-text font-bold">
-          <li className="hover:text-dark-blue cursor-pointer text-primary-blue">Home</li>
-          <li className="hover:text-dark-blue cursor-pointer">Shop</li>
-          <li className="hover:text-dark-blue cursor-pointer">About</li>
-          <li className="hover:text-dark-blue cursor-pointer">Blog</li>
-          <li className="hover:text-dark-blue cursor-pointer">Contact</li>
-          <li className="hover:text-dark-blue cursor-pointer">Pages</li>
-        </ul>
+  
+        <div className="flex items-center gap-2 lg:gap-6">
 
-        {/* Sağ Taraf - Mobilde dikey liste, text-4xl */}
-        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 text-primary-blue font-bold text-3xl md:text-base">
-          <div className="flex items-center gap-2 cursor-pointer order-last md:order-first">
-            <FiUser />
-            <span className="md:block hidden">Login / Register</span>
+          <div className="hidden lg:flex items-center gap-2 text-primary-blue font-bold text-sm cursor-pointer">
+            <FiUser className="text-lg" />
+            <span>Login / Register</span>
           </div>
-          
-          <div className="flex items-center gap-6 md:gap-6 text-4xl md:text-xl">
+
+          <div className="flex items-center gap-6 text-primary-blue text-xl">
             <FiSearch className="cursor-pointer" />
+            
             <div className="flex items-center gap-1 cursor-pointer">
               <FiShoppingCart />
-              <span className="font-normal text-sm">1</span>
+              <span className="text-xs font-normal">1</span>
             </div>
-            <div className="flex items-center gap-1 cursor-pointer">
+
+            <div className="hidden md:flex items-center gap-1 cursor-pointer">
               <FiHeart />
-              <span className="font-normal text-sm">1</span>
+              <span className="text-xs font-normal">1</span>
             </div>
+
+            <button 
+              className="lg:hidden text-dark-blue"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <FiX size={28} /> : <FiMenu size={28} />}
+            </button>
           </div>
         </div>
       </div>
+
+      {isMenuOpen && (
+        <div className="lg:hidden bg-white py-12 border-t border-gray-50 animate-fadeIn">
+          <ul className="flex flex-col items-center gap-8 text-3xl text-second-text font-normal">
+            <li><Link onClick={() => setIsMenuOpen(false)} to="/">Home</Link></li>
+            <li><Link onClick={() => setIsMenuOpen(false)} to="/shop">Product</Link></li>
+            <li><Link onClick={() => setIsMenuOpen(false)} to="/pricing">Pricing</Link></li>
+            <li><Link onClick={() => setIsMenuOpen(false)} to="/contact">Contact</Link></li>
+            
+            {/* Login / Register (Mobil Menü İçinde) */}
+            <li className="pt-4 flex flex-col items-center gap-4">
+              <div className="flex items-center gap-2 text-primary-blue font-bold text-xl">
+                <FiUser />
+                <span>Login / Register</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };

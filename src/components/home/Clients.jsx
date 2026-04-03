@@ -9,16 +9,15 @@ const Clients = () => {
   const clients = [client1, client2, client3, client4, client5, client6];
 
   return (
-    <section className="py-16 md:py-12 bg-white">
-      <div className="container mx-auto px-6">
-        {/* Mobilde col (dikey), md'de row (yatay), gap-16 (büyük boşluk) */}
-        <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-16 md:gap-10 opacity-60 grayscale">
+    <section className="py-20 md:py-20 bg-white">
+      <div className="container mx-auto px-40">
+        <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-12 md:gap-8">
           {clients.map((logo, index) => (
             <img 
               key={index} 
               src={logo} 
               alt={`Client ${index + 1}`} 
-              className="h-16 md:h-12 object-contain"
+              className="h-18 md:h-18 object-none"
             />
           ))}
         </div>
