@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Product from "./pages/Product";
 import Contact from "./pages/Contact";      
-import About from "./pages/About";
+
 
 function App() {
   return (
@@ -23,7 +23,6 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
         </Routes>
       </main>
       <Footer />
