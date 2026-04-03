@@ -10,13 +10,14 @@ const Navbar = () => {
       <div className="container flex md:items-center justify-between">
         
         <div className="flex md:items-center gap-12 lg:gap-20">
-          <Link to="/" className="text-2xl font-bold text-dark-blue">Bandage</Link>
+          <Link to="/" className="text-3xl font-bold text-dark-blue">Bandage</Link>
 
-          <ul className="hidden lg:flex items-center gap-6 text-sm font-bold text-second-text">
+          <ul className="hidden lg:flex items-center gap-6 text-base font-bold text-second-text">
             <li><Link to="/" className="hover:text-primary-blue">Home</Link></li>
             <li><Link to="/shop" className="hover:text-primary-blue">Shop</Link></li>
             <li><Link to="/about" className="hover:text-primary-blue">About</Link></li>
-            <li><Link to="/blog" className="hover:text-primary-blue">Blog</Link></li>
+            <li><Link to="/pricing" className="hover:text-primary-blue">Pricing</Link></li>
+            <li><Link to="/team" className="hover:text-primary-blue">Team</Link></li>
             <li><Link to="/contact" className="hover:text-primary-blue">Contact</Link></li>
           </ul>
         </div>
@@ -58,9 +59,9 @@ const Navbar = () => {
             <li><Link onClick={() => setIsMenuOpen(false)} to="/">Home</Link></li>
             <li><Link onClick={() => setIsMenuOpen(false)} to="/shop">Product</Link></li>
             <li><Link onClick={() => setIsMenuOpen(false)} to="/pricing">Pricing</Link></li>
+            <li><Link onClick={() => setIsMenuOpen(false)} to="/team">Team</Link></li>
             <li><Link onClick={() => setIsMenuOpen(false)} to="/contact">Contact</Link></li>
             
-            {/* Login / Register (Mobil Menü İçinde) */}
             <li className="pt-4 flex flex-col items-center gap-4">
               <div className="flex items-center gap-2 text-primary-blue font-bold text-xl">
                 <FiUser />

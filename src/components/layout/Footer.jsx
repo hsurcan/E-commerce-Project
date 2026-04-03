@@ -3,7 +3,7 @@ import { FaInstagram, FaYoutube, FaFacebook, FaTwitter } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="bg-white">
-      {/* Üst Kısım: Logo ve Sosyal Medya */}
+     
       <div className="bg-[#FAFAFA] py-10">
         <div className="container mx-auto px-6 md:px-10 lg:px-20 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <h3 className="text-2xl font-bold text-dark-blue">Bandage</h3>
@@ -15,10 +15,12 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Orta Kısım: Link Grupları */}
+      <hr className="border-[#E6E6E6] mx-40" />
+
+      {/*Linkler*/}
       <div className="container mx-auto px-6 md:px-10 lg:px-20 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-4">
-          
+
           {/* Company Info */}
           <div className="space-y-4">
             <h5 className="font-bold text-dark-blue">Company Info</h5>
@@ -63,7 +65,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Get In Touch (Subscribe) */}
+          {/* Get In Touch*/}
           <div className="space-y-4 lg:col-span-1">
             <h5 className="font-bold text-dark-blue">Get In Touch</h5>
             <div className="flex flex-col gap-2">
@@ -84,7 +86,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Alt Kısım: Copyright */}
+      {/*Copyright*/}
       <div className="bg-[#FAFAFA] py-6">
         <div className="container mx-auto px-6 md:px-10 lg:px-20 text-center md:text-left">
           <p className="text-second-text font-bold text-sm">

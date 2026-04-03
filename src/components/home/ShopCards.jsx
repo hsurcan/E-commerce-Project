@@ -4,13 +4,11 @@ import card3 from '../../assets/home/shopcards3.png';
 
 const ShopCards = () => {
   return (
-    <section className="py-10 bg-[#FAFAFA]">
+    <section className="py-10 bg-white">
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
-        
-        {/* Mobilde cols-1 (tek sütun), lg'de o asimetrik grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-auto lg:h-[600px]">
-          
-          {/* Sol/Üst: Büyük Kart (Mobilde ilk, md'de sol) */}
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-auto lg:h-[600px]">   
+
           <div className="relative group overflow-hidden cursor-pointer lg:col-span-1 lg:row-span-2 h-[450px] lg:h-full">
             <img 
               src={card1} 
@@ -19,16 +17,13 @@ const ShopCards = () => {
             />
             <div className="absolute bottom-10 left-10 bg-primary-blue bg-opacity-90 text-white p-6 max-w-[200px]">
               <h4 className="font-bold text-lg">Top Product Of The Week</h4>
-              <button className="mt-4 border border-white px-6 py-2 uppercase text-xs font-bold hover:bg-white hover:text-primary-blue">
+              <button className="rounded-sm mt-4 border border-white px-6 py-2 uppercase text-xs font-bold hover:bg-white hover:text-primary-blue">
                 Explore Items
               </button>
             </div>
           </div>
 
-          {/* Sağ/Alt: İki Küçük Kart (Mobilde de alt alta) */}
-          <div className="lg:col-span-2 grid grid-cols-1 gap-6">
-            
-            {/* İkinci Kart */}
+       
             <div className="relative group overflow-hidden cursor-pointer h-[350px] lg:h-[290px]">
               <img 
                 src={card2} 
@@ -41,7 +36,7 @@ const ShopCards = () => {
               </div>
             </div>
 
-            {/* Üçüncü Kart */}
+
             <div className="relative group overflow-hidden cursor-pointer h-[350px] lg:h-[290px]">
               <img 
                 src={card3} 
@@ -57,7 +52,6 @@ const ShopCards = () => {
           </div>
 
         </div>
-      </div>
     </section>
   );
 };
