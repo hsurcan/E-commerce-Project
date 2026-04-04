@@ -1,28 +1,33 @@
 import { Routes, Route } from "react-router-dom";
-import TopBar from "./components/layout/TopBar.jsx";
-import Navbar from "./components/layout/Navbar.jsx";
-import Footer from "./components/layout/Footer.jsx";
+import TopBar from "./components/layout/TopBar";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 
 //Pages
-import Home from "./pages/Home.jsx";
-import Shop from "./pages/Shop.jsx";
-import Contact from "./pages/Contact.jsx";      
-
+import Home from "./pages/Home";
+import Shop from "./pages/Shop"; 
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Pricing from "./pages/Pricing";
+import Team from "./pages/Team";
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col font-sans">
-      <header>
-        <TopBar />
-        <Navbar />
-      </header>
-      <main className="flex-grow">
+    <div className="min-h-screen flex flex-col overflow-x-hidden font-montserrat">
+      <TopBar />
+      <Navbar />
+      <div className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />
+          
+          <Route path="*" element={<Home />} />
         </Routes>
-      </main>
+      </div>
       <Footer />
     </div>
   );

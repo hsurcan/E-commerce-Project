@@ -27,20 +27,14 @@ const Hero = () => {
   
           <div className="w-full md: relative flex items-end self-end left-52 ">
 
-             {/* Arkadaki büyük beyaz daire */}
-            <div className="absolute top-48 left-2/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white rounded-full opacity-100 hidden md:block"></div>
-            <div className="absolute -top-1 left-20 -translate-x-1/2 -translate-y-1/2 w-[70px] h-[70px] bg-white rounded-full opacity-100 hidden md:block"></div>
+            {/*<div className="absolute top-48 left-2/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white rounded-full opacity-100 hidden md:block"></div> */}
             
             <img 
               src={heroModel} 
               alt="Summer Girl" 
-              className="relative z-10 w-[110%] md:w-[110%] max-w-none object-contain md:bottom-[-36px] md:right-12"
+              className="relative z-10 w-[120%] md:w-[120%] max-w-none object-contain md:right-24"
             />
-            
-            <div className="absolute top-20 right-0 w-6 h-6 bg-[#977DF4] rounded-full hidden md:block"></div>
-            <div className="absolute bottom-40 left-0 w-4 h-4 bg-[#977DF4] rounded-full hidden md:block"></div>
           </div>
-
         </div>
       </div>
     </section>
