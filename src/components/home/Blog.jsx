@@ -1,5 +1,5 @@
 import { FiClock, FiBook, FiTrendingUp, FiDownload, FiStar, FiHeart, FiShoppingCart, FiEye, FiChevronRight } from "react-icons/fi";
-import blog1 from '../../assets/home/blog1.jpg';
+import blog1 from '../../assets/home/Blog1.jpg';
 import blog2 from '../../assets/home/blog2.jpg'; 
 
 const Blog = () => {
