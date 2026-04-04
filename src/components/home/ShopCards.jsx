@@ -1,6 +1,6 @@
-import card1 from '../../assets/home/shopcards1.png';
-import card2 from '../../assets/home/shopcards2.png';
-import card3 from '../../assets/home/shopcards3.png';
+import shopcards1 from '../../assets/home/shopcards1.png';
+import shopcards2 from '../../assets/home/shopcards2.png';
+import shopcards3 from '../../assets/home/shopcards3.png';
 
 const ShopCards = () => {
   return (
@@ -11,7 +11,7 @@ const ShopCards = () => {
 
           <div className="relative group overflow-hidden cursor-pointer lg:col-span-1 lg:row-span-2 h-[450px] lg:h-full">
             <img 
-              src={card1} 
+              src={shopcards1} 
               alt="Main Product" 
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
@@ -26,7 +26,7 @@ const ShopCards = () => {
        
             <div className="relative group overflow-hidden cursor-pointer h-[350px] lg:h-[290px]">
               <img 
-                src={card2} 
+                src={shopcards2} 
                 alt="Secondary Product" 
                 className="w-full h-full object-cover"
               />
@@ -39,7 +39,7 @@ const ShopCards = () => {
 
             <div className="relative group overflow-hidden cursor-pointer h-[350px] lg:h-[290px]">
               <img 
-                src={card3} 
+                src={shopcards3} 
                 alt="Third Product" 
                 className="w-full h-full object-cover"
               />

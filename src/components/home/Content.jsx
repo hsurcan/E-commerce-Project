@@ -7,7 +7,7 @@ const Content = () => {
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           
-          {/* Görsel Alanı - Mobilde üstte, yan yana iki görsel */}
+          {/* Görsel Alanı */}
           <div className="flex gap-4 w-full lg:w-1/2">
             <div className="w-1/2">
               <img 
@@ -16,7 +16,7 @@ const Content = () => {
                 className="w-full h-[400px] md:h-[500px] object-cover rounded-lg shadow-lg"
               />
             </div>
-            <div className="w-1/2 mt-8"> {/* Hafif asimetri için üstten boşluk */}
+            <div className="w-1/2 mt-8"> 
               <img 
                 src={content2} 
                 alt="Content Visual 2" 
@@ -25,7 +25,7 @@ const Content = () => {
             </div>
           </div>
 
-          {/* Metin Alanı - Mobilde altta ve ortalanmış */}
+          {/* Metin Alanı */}
           <div className="w-full lg:w-1/2 text-center lg:text-left flex flex-col gap-6">
             <h5 className="text-primary-blue font-bold tracking-widest uppercase">
               Featured Products
