@@ -6,7 +6,7 @@ import Content from "../components/home/Content";
 import Features from "../components/home/Features";
 import Blog from "../components/home/Blog";
 
-const Home = () => {
+export default function Home(){
   return (
     <main>
       <Hero />
@@ -19,5 +19,3 @@ const Home = () => {
     </main>
   );
 };
-
-export default Home;

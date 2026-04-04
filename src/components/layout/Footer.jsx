@@ -1,6 +1,6 @@
 import { FaInstagram, FaYoutube, FaFacebook, FaTwitter } from "react-icons/fa";
 
-const Footer = () => {
+export default function Footer(){
   return (
     <footer className="bg-white">
      
@@ -97,5 +97,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;
