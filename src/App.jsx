@@ -24,8 +24,6 @@ function App() {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />
-          
-          <Route path="*" element={<Home />} />
         </Routes>
       </div>
       <Footer />

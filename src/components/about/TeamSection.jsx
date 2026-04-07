@@ -1,13 +1,25 @@
 import { FiFacebook, FiInstagram, FiTwitter } from "react-icons/fi";
-import team1 from "../../assets/about/team-1.jpg"; 
-import team2 from "../../assets/about/team-2.jpg"; 
-import team3 from "../../assets/about/team-3.jpg"; 
+import team4 from   '../../assets/team/team-4.jpg';
+import team6 from   '../../assets/team/team-6.jpg';
+import team7 from   '../../assets/team/team-7.jpg';
 
 const TeamSection = () => {
-  const members = [
-    { img: team1, name: "Username", profession: "Profession" },
-    { img: team2, name: "Username", profession: "Profession" },
-    { img: team3, name: "Username", profession: "Profession" },
+ const teamMembers = [
+    {
+      name: "John Doe",
+      profession: "CEO & Graphic Designer",
+      img: team4
+    },
+    {
+      name: "Manny Thompson",
+      profession: "Content Writer",
+      img: team6
+    },
+    {
+      name: "Jennifer Lee",
+      profession: "Content Writer",
+      img: team7
+    }
   ];
 
   return (
@@ -20,7 +32,7 @@ const TeamSection = () => {
         </p>
 
         <div className="flex flex-col md:flex-row justify-center gap-10 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
-          {members.member.map((member, index) => (
+          {teamMembers.map((member, index) => (
             <div key={index} className="w-full flex flex-col items-center bg-white group overflow-hidden">
               <img src={member.img} alt={member.name} className="w-full object-cover aspect-square md:aspect-auto" />
               <div className="p-8 space-y-3">

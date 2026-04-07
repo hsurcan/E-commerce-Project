@@ -3,7 +3,7 @@ import { FiGrid, FiList } from "react-icons/fi";
 const ProductFilter = () => {
   return (
     <div className="py-6 border-b border-gray-100">
-      <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div className="mx-auto px-6 lg:px-28 flex flex-col md:flex-row justify-between items-center gap-6">
         <span className="text-second-text font-bold text-sm">Showing all 12 results</span>
         
         <div className="flex items-center gap-4">

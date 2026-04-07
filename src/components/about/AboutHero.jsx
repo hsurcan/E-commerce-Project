@@ -2,7 +2,7 @@ import heroGirl from "../../assets/about/hero-girl.png";
 
 const AboutHero = () => {
   return (
-    <section className="container mx-auto px-6 py-12 lg:py-20">
+    <section className="mx-auto px-6 lg:px-28 py-12 lg:py-2">
       <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
         
   
@@ -24,13 +24,14 @@ const AboutHero = () => {
         </div>
 
         <div className="w-full lg:w-1/2 relative flex justify-center lg:justify-end items-center">
+
           {/* Arkadaki pembe daire dekoru */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] md:w-[500px] md:h-[500px] bg-[#FFE9EA] rounded-full -z-10"></div>
           
           <img 
             src={heroGirl} 
             alt="About Us Girl" 
-            className="relative z-10 w-[90%] md:w-full max-w-[380px] md:max-w-[550px] object-contain"
+            className="relative z-10 w-[100%] md:w-full max-w-[400px] md:max-w-[700px] object-contain"
           />
         </div>
 

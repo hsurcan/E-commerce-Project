@@ -26,19 +26,16 @@ const Features = () => {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6 md:px-10 lg:px-20 text-center">
         
-        {/* Başlık Grubu */}
         <div className="mb-20 space-y-3">
           <h4 className="text-second-text text-xl font-medium">Featured Products</h4>
-          <h3 className="text-dark-blue text-2xl font-bold uppercase tracking-wider">
+          <h3 className="text-dark-blue mx-auto text-2xl font-bold uppercase tracking-wider">
             The Best Services
           </h3>
-          <p className="text-second-text text-sm max-w-[300px] mx-auto">
+          <p className="text-second-text text-sm max-w-[300px] mx-auto lg:whitespace-nowrap">
             Problems trying to resolve the conflict between
           </p>
         </div>
 
-        {/* Özellikler Izgarası */}
-        {/* Mobilde 1 sütun, masaüstünde 3 sütun */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-10">
           {features.map((item) => (
             <div key={item.id} className="flex flex-col items-center gap-5 px-4">

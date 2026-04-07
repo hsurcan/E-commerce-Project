@@ -9,7 +9,7 @@ const Shop = () => {
     <main className="bg-white">
       {/*Breadcrumb*/}
       <div className="bg-[#FAFAFA] py-6">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mx-auto px-28 flex flex-col md:flex-row justify-between items-center gap-4">
           <h2 className="text-2xl font-bold text-dark-blue">Shop</h2>
           <div className="flex items-center gap-2 text-sm font-bold">
             <span className="text-dark-blue">Home</span>
@@ -24,7 +24,7 @@ const Shop = () => {
       <ProductList />
       <Pagination />
       <div className="bg-[#FAFAFA]">
-        <Clients />
+      <Clients />
       </div>
     </main>
   );

@@ -10,8 +10,8 @@ const Clients = () => {
 
   return (
     <section className="py-20 md:py-20 bg-white">
-      <div className="container mx-auto px-40">
-        <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-12 md:gap-8">
+      <div className=" mx-auto px-6 md:px-20 lg:px-40">
+        <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-14 md:gap-8">
           {clients.map((logo, index) => (
             <img 
               key={index} 

@@ -1,11 +1,11 @@
-import { FaInstagram, FaYoutube, FaFacebook, FaTwitter } from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaTwitter } from "react-icons/fa";
 
 export default function Footer(){
   return (
     <footer className="bg-white">
      
-      <div className="bg-[#FAFAFA] py-10">
-        <div className="container mx-auto px-6 md:px-10 lg:px-20 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+      <div className="bg-white py-10">
+        <div className="container mx-auto px-6 md:px-12 lg:px-20 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <h3 className="text-2xl font-bold text-dark-blue">Bandage</h3>
           <div className="flex gap-5 text-primary-blue text-2xl">
             <FaFacebook className="cursor-pointer" />
@@ -15,7 +15,7 @@ export default function Footer(){
         </div>
       </div>
 
-      <hr className="border-[#E6E6E6] mx-40" />
+      <hr className="border-[#E6E6E6] mx-20" />
 
       {/*Linkler*/}
       <div className="container mx-auto px-6 md:px-10 lg:px-20 py-16">

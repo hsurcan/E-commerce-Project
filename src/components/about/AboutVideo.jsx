@@ -1,5 +1,5 @@
 import { FiPlay } from "react-icons/fi";
-import videoBg from "../../assets/about/video-bg.png"; // Dağ manzarası görseli
+import videoBg from "../../assets/about/video-bg.png";
 
 const AboutVideo = () => {
   return (

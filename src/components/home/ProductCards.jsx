@@ -1,9 +1,11 @@
+import { GiBadGnome } from "react-icons/gi";
 import { products } from "../../api/mockdata/products";
+import { TbBrandUbuntu } from "react-icons/tb";
 
 function ProductCards() {
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto px-6 md:px-10 lg:px-20 text-center">
+      <div className="container mx-auto px-8 md:px-12 lg:px-40 text-center">
 
         {/* Başlık */}
         <div className="mb-12 space-y-3">
@@ -53,3 +55,4 @@ function ProductCards() {
 }
 
 export default ProductCards;
+

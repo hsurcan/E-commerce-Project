@@ -4,8 +4,8 @@ import content2 from '../../assets/home/content2.jpg';
 const Content = () => {
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto px-6 md:px-10 lg:px-20">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <div className="container mx-auto px-8 md:px-12 lg:px-40">
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
           
           {/* Görsel Alanı */}
           <div className="flex gap-4 w-full lg:w-1/2">

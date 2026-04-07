@@ -2,11 +2,11 @@ import ctaGirl from "../../assets/about/cta-girl.jpg";
 
 const AboutCTA = () => {
   return (
-    <section className="relative overflow-hidden">
-      <div className="container mx-auto px-6 flex flex-col md:flex-row items-center">
+    <section className="relative overflow-hidden w-full">
+      <div className="mx-0px flex flex-col md:flex-row items-center">
         
 
-        <div className="w-full md:w-[60%] bg-primary-blue text-white py-16 lg:py-24 px-10 md:px-16 flex flex-col items-center md:items-start text-center md:text-left space-y-6 lg:space-y-8 rounded-none md:rounded-l-2xl">
+        <div className="w-full md:w-[70%] bg-primary-blue text-white py-16 lg:py-36 px-10 md:px-48 flex flex-col items-center md:items-start text-center md:text-left space-y-6 lg:space-y-8 rounded-none">
           <h6 className="font-bold uppercase tracking-wider text-sm">
             WORK WITH US
           </h6>
@@ -23,11 +23,11 @@ const AboutCTA = () => {
           </div>
         </div>
 
-        <div className="w-full md:w-[40%] relative flex justify-center md:justify-start items-center h-[300px] md:h-auto self-stretch">
+        <div className="hidden md:block md:w-[40%] max-w-full relative self-stretch overflow-hidden">
           <img 
             src={ctaGirl} 
             alt="CTA Girl" 
-            className="absolute md:relative z-10 w-[90%] md:w-full max-w-[350px] md:max-w-none object-contain h-full md:h-auto bottom-0 md:bottom-auto"
+            className="absolute bottom-0 left-0 w-full h-full object-fill object-bottom"
           />
         </div>
 
