@@ -4,11 +4,9 @@ const ContactFooter = () => {
   return (
     <section className="bg-white py-20 md:py-32">
       <div className="container mx-auto px-6 flex flex-col items-center text-center gap-6">
-        
-        {/* Görseldeki Mavi Ok İkonu */}
+    
         <div className="relative mb-4">
           <FiArrowDownRight className="text-primary-blue text-7xl transform rotate-45 md:rotate-0" />
-          {/* İstersen buraya görseldeki gibi tam kıvrımlı bir SVG ok da koyabilirsin */}
         </div>
 
         <h6 className="font-bold text-dark-blue tracking-widest uppercase text-sm md:text-base">

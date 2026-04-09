@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Pricing from "./pages/Pricing";
 import Team from "./pages/Team";
+import AuthPage from "./pages/Login/AuthPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<AuthPage />} />
         </Routes>
       </div>
       <Footer />

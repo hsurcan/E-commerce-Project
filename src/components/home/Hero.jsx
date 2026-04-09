@@ -26,7 +26,7 @@ const Hero = () => {
          
           <div className="w-full md:w-2/5 relative flex justify-center md:justify-end items-end self-end mt-auto md:mt-0 h-[400px] md:h-auto overflow-visible ">
 
-          <div className="absolute top-[20%] md: left-40 -translate-x-1/2 w-[250px] h-[250px] md:w-[100px] md:h-[100px] bg-white rounded-full z-0 shadow-lg"></div>
+          <div className="absolute top-[20%] md: left-40 -translate-x-1/2 w-[250px] h-[250px] md:w-[100px] md:h-[100px] bg-white rounded-full z-0 shadow-lg lg:hidden"></div>
             
             <img 
               src={heroModel} 

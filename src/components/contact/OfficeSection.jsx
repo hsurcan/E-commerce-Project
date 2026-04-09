@@ -36,7 +36,7 @@ const OfficeSection = () => {
               key={index}
               className={`w-full max-w-[330px] p-12 flex flex-col items-center gap-4 transition-transform hover:scale-105 ${
                 card.dark 
-                ? "bg-[#252B42] text-white py-20" // Koyu kart daha uzun
+                ? "bg-[#252B42] text-white py-20" 
                 : "bg-white text-dark-blue"
               }`}
             >
@@ -46,7 +46,7 @@ const OfficeSection = () => {
                 <p>{card.emails[1]}</p>
               </div>
               <h5 className="font-bold text-lg mt-4">{card.label}</h5>
-              <button className={`mt-2 px-8 py-4 border rounded-full font-bold transition-colors ${
+              <button className={`mt-2 px-8 py-4 border rounded-lg lg:rounded-full font-bold transition-colors ${
                 card.dark 
                 ? "border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white" 
                 : "border-primary-blue text-primary-blue hover:bg-gray-50"

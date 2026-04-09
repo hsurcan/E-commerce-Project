@@ -3,7 +3,7 @@ import heroImg from "../../assets/contact/heroImg.png";
 
 const ContactHero = () => {
   return (
-    <section className="container mx-auto px-28 py-2 md:py-2">
+    <section className="mx-auto px-8 py-8 md:py-2 lg:px-32">
       <div className="flex flex-col md:flex-row items-center gap-12">
 
         {/* Metin İçeriği */}
@@ -16,7 +16,7 @@ const ContactHero = () => {
             We know how large objects will act, but things on a small scale
           </p>
           <div className="space-y-2 font-bold text-dark-blue text-2xl">
-            <p>Phone ; +451 215 215 </p>
+            <p>Phone : +451 215 215 </p>
             <p>Fax : +451 215 215</p>
           </div>
           <div className="flex gap-8 text-3xl text-dark-blue pt-4">
@@ -28,9 +28,9 @@ const ContactHero = () => {
         </div>
 
         {/* Görsel */}
-        <div className="w-full lg:w-[100%] relative flex justify-center lg:justify-center items-center">
+        <div className="w-full flex justify-center overflow-hidden">
           <img src={heroImg} alt="Family Shopping" 
-          className="relative z-10 max-w-[250%] md:object-contain transform lg:-translate-x-40" />
+          className="w-[200%] max-w-none -translate-x-32 md:w-[120%] lg:w-auto lg:-translate-x-40" />
         </div>
       </div>
     </section>

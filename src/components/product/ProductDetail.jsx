@@ -6,7 +6,7 @@ const ProductDetail = () => {
     <section className="container mx-auto px-6 pb-12">
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
         
-        {/* Sol: Ürün Slider/Görsel */}
+        {/* Sol: Ürün Slider */}
         <div className="w-full lg:w-1/2 flex flex-col gap-4">
           <div className="relative aspect-square overflow-hidden bg-gray-200">
             <img src={productImg} alt="Product" className="w-full h-full object-cover" />

@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiUser, FiSearch, FiShoppingCart, FiHeart, FiMenu, FiX } from "react-icons/fi";
+import useUserStore from "../../store/useUserStore";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isLoggedIn = useUserStore((store) => store.isLoggedIn);
+  const user = useUserStore((state) => state.user);
 
   return (
     <nav className="bg-white py-6">
@@ -28,7 +31,9 @@ const Navbar = () => {
 
           <div className="hidden lg:flex items-center gap-2 text-primary-blue font-bold text-sm cursor-pointer">
             <FiUser className="text-lg" />
-            <span>Login / Register</span>
+            <Link to={isLoggedIn ? "/account" : "/login"} className="hover:text-primary-blue"> 
+            {isLoggedIn ? (user?.name || "My Account") : "Login / Register"}
+            </Link>
           </div>
 
           <div className="hidden lg:flex items-center gap-6 text-primary-blue text-xl">
@@ -67,7 +72,9 @@ const Navbar = () => {
             <li className="pt-4 flex flex-col items-center gap-4">
               <div className="flex items-center gap-2 text-primary-blue font-bold text-xl">
                 <FiUser />
-                <span>Login / Register</span>
+                <Link to={isLoggedIn ? "/account" : "/login"} className="hover:text-primary-blue"> 
+            {isLoggedIn ? (user?.name || "My Account") : "Login / Register"}
+            </Link>
               </div>
 
             <div className="flex items-center gap-6 text-primary-blue text-xl">
