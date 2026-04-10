@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import useUserStore from "../../store/useUserStore";
 import { useNavigate } from "react-router-dom";
+import { axiosInstance } from '../../api/axiosInstance';
 
 const AuthPage = () => {
   const setUser = useUserStore((state) => state.setUser);
@@ -8,7 +9,8 @@ const AuthPage = () => {
 
   const [loginData, setLoginData] = useState({ 
     email: "", 
-    password: "" 
+    password: "",
+    rememberMe: false
   });
 
   const [registerData, setRegisterData] = useState({
@@ -19,18 +21,49 @@ const AuthPage = () => {
     confirmPassword: ""
   });
 
+  const validateEmail = (email) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+  };
+
+  const validatePassword = (password) => {
+  const requirements = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+  return requirements.test(password);
+  };
+
   //Login function
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    
+
     if (!loginData.email || !loginData.password) {
-      alert("Lütfen tüm alanları doldurunuz!");
+      alert("Please fill in all fields!");
       return; 
     }
 
-    // Her şey tamamsa Zustand'ı güncelle
-    setUser({ name: loginData.email.split('@')[0], email: loginData.email });
-    navigate("/");
+    if (!validateEmail(loginData.email)) {
+      alert("Please enter a valid email address!");
+      return;
+    }
+    try {
+      const response = await axiosInstance.post('/login', loginData);
+      const { user, token } = response.data;
+
+      if (loginData.rememberMe) {
+        localStorage.setItem('token', token);
+      } else {
+        // İşaretli değilse eskiden kalan varsa temizle
+        localStorage.removeItem('token');
+      }
+
+      setUser(user);
+      navigate("/");
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("Login failed. Please try again."); //SIKINTI BURDAA
+    }
   };
 
   //Register function
@@ -50,14 +83,22 @@ const AuthPage = () => {
       return;
     }
 
+    // Şifre güvenlik kontrolü
+    if (!validatePassword(registerData.password)) {
+    alert(
+      "Şifreniz en az 8 karakter olmalı, en az bir büyük harf, bir küçük harf ve bir rakam içermelidir."
+    );
+    return;
+  }
+
     // Email formatı kontrolü
-    if (!email.includes("@")) {
+    if (!validateEmail(registerData.email)) {
       alert("Geçerli bir email giriniz!");
       return;
     }
 
     // Kayıt başarılı
-    setUser({ name: firstName, email: email });
+    setUser({ name: `${firstName} ${lastName}`, email: email });
     navigate("/");
   };
 
@@ -88,6 +129,15 @@ const AuthPage = () => {
               onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
               placeholder="Password" 
               className="w-full p-4 border rounded-md bg-gray-50 focus:outline-primary-blue" />
+            </div>
+            <div>
+              <label className="inline-flex items-center gap-2">
+                <input 
+                type="checkbox" 
+                onChange={(e) => setLoginData({ ...loginData, rememberMe: e.target.checked })}
+                className="form-checkbox h-5 w-5 text-primary-blue" />
+                <span className="text-sm text-gray-600">Remember Me</span>
+              </label>
             </div>
             <button onClick={handleLogin} className="bg-primary-blue text-white px-10 py-4 rounded-md font-bold w-full lg:w-auto hover:bg-opacity-90 transition-all">
               Login

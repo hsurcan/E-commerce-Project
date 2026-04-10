@@ -1,6 +1,10 @@
 import {productlist} from "../../api/mockdata/productlist";
+import { slugify } from '../../utils/slugify';
 
-const ProductList = () => {
+const ProductCard = ({ product }) => {
+
+  const detailUrl = `/shop/${product.gender === 'k' ? 'kadin' : 'erkek'}/${slugify(product.categoryName || 'cat')}/${product.category_id}/${slugify(product.name)}/${product.id}`;
+  
   return (
     <section className="bg-white py-16">
       <div className="mx-auto px-6 lg:px-28">
@@ -33,8 +37,17 @@ const ProductList = () => {
           ))}
         </div>
       </div>
+      <Link to={detailUrl} className="group cursor-pointer">
+      <div className="border hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 rounded-lg overflow-hidden bg-white">
+        <img src={product.images[0].url} alt={product.name} className="w-full h-80 object-cover" />
+        <div className="p-4 text-center">
+          <h5 className="font-bold text-dark-blue group-hover:text-primary-blue">{product.name}</h5>
+          <p className="text-secondary-1 font-bold">${product.price}</p>
+        </div>
+      </div>
+    </Link>
     </section>
   );
 };
 
-export default ProductList;
+export default ProductCard;
