@@ -12,7 +12,6 @@ const Product = () => {
 
   useEffect(() => {
     fetchProductById(productId);
-    // Scroll to top when product changes
     window.scrollTo(0, 0);
   }, [productId, fetchProductById]);
 

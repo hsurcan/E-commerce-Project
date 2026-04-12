@@ -3,17 +3,16 @@ import { axiosInstance } from '../api/axiosInstance';
 
 const useCategoryStore = create((set) => ({
   categories: [],
-  isLoading: false,
-  error: null,
+  loading: false,
 
-  // Thunk Action to fetch categories
   fetchCategories: async () => {
-    set({ isLoading: true });
+    set({ loading: true });
     try {
       const response = await axiosInstance.get('/categories');
-      set({ categories: response.data, isLoading: false });
+      set({ categories: response.data, loading: false });
     } catch (err) {
-      set({ error: err.message, isLoading: false });
+      console.error("Kategori çekme hatası:", err);
+      set({ loading: false });
     }
   },
 }));

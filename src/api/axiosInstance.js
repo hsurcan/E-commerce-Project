@@ -1,14 +1,23 @@
 import axios from 'axios';
 
+const baseURL = import.meta.env.VITE_API_URL;
+
 export const axiosInstance = axios.create({
-  baseURL: 'https://api.example.com', // YENİ APİ EKLE
+  baseURL: baseURL,
+  headers: {
+    "Content-Type": "application/json"
+  }
 });
 
-// Interceptor ile token otomatik eklenir
-axiosInstance.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
-  if (token) {
-    config.headers.Authorization = token; 
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = token; 
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
   }
-  return config;
-});
+);

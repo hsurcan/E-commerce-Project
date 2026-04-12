@@ -1,52 +1,66 @@
-import {productlist} from "../../api/mockdata/productlist";
+import { Link } from 'react-router-dom';
 import { slugify } from '../../utils/slugify';
+import useCategoryStore from '../../store/useCategoryStore';
 
 const ProductCard = ({ product }) => {
+  const { categories } = useCategoryStore();
 
-  const detailUrl = `/shop/${product.gender === 'k' ? 'kadin' : 'erkek'}/${slugify(product.categoryName || 'cat')}/${product.category_id}/${slugify(product.name)}/${product.id}`;
-  
+  if (!product) return null;
+
+  const currentCategory = categories.find(cat => cat.id === product.category_id);
+
+  const gender = currentCategory?.gender === 'k' ? 'kadin' : 'erkek';
+
+  const categoryName = currentCategory 
+    ? slugify(currentCategory.title) 
+    : 'urunler';
+
+  const detailUrl = `/shop/${gender}/${categoryName}/${product.category_id}/${slugify(product.name || product.title)}/${product.id}`;
+
+  const productImage = product.images?.[0]?.url || product.images?.[0] || product.thumbnail;
+
   return (
-    <section className="bg-white py-16">
-      <div className="mx-auto px-6 lg:px-28">
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {productlist.slice(0, 12).map((product) => (
-            <div key={product.id} className="bg-white p-0 flex flex-col group cursor-pointer shadow-sm">
-               <img src={product.image} className="w-full h-90 object-cover" />
-              
-               <div className="flex justify-center p-4">
-                 <h5 className="font-bold text-dark-blue">{product.name}</h5>
-                </div>
-
-                <div className="flex justify-center pb-4  ">
-                  <p className="text-second-text text-sm font-bold">{product.dept}</p>
-                </div>
-
-                 <div className="flex justify-center gap-4 font-bold pb-4">
-                    <span className="text-[#bdbdbd]">{product.oldPrice}</span>
-                    <span className="text-[#23856D]">{product.newPrice}</span>
-                 </div>
-
-                 <div className="flex gap-2 justify-center pt-2">
-                  <div className="w-4 h-4 rounded-full bg-primary-blue"></div>
-                  <div className="w-4 h-4 rounded-full bg-success-green"></div>
-                  <div className="w-4 h-4 rounded-full bg-alert-orange"></div>
-                  <div className="w-4 h-4 rounded-full bg-dark-blue"></div>
-                </div>
-               </div>
-          ))}
+    <Link to={detailUrl} className="group cursor-pointer block h-full">
+      <div className="flex flex-col bg-white shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full border rounded-lg overflow-hidden">
+        
+        {/* Resim Alanı */}
+        <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
+          <img 
+            src={productImage} 
+            alt={product.name || product.title} 
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+          />
         </div>
-      </div>
-      <Link to={detailUrl} className="group cursor-pointer">
-      <div className="border hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 rounded-lg overflow-hidden bg-white">
-        <img src={product.images[0].url} alt={product.name} className="w-full h-80 object-cover" />
-        <div className="p-4 text-center">
-          <h5 className="font-bold text-dark-blue group-hover:text-primary-blue">{product.name}</h5>
-          <p className="text-secondary-1 font-bold">${product.price}</p>
+
+        {/* Bilgi Alanı */}
+        <div className="p-4 flex flex-col gap-2 text-center flex-grow">
+          <h5 className="font-bold text-dark-blue group-hover:text-primary-blue truncate">
+            {product.name || product.title}
+          </h5>
+          
+          <p className="text-second-text text-sm font-bold uppercase tracking-tighter">
+            {currentCategory?.title || "Product"}
+          </p>
+
+          <div className="flex justify-center gap-3 font-bold py-2">
+
+            {product.oldPrice ? (
+              <span className="text-[#bdbdbd] line-through">
+                ${product.oldPrice.toFixed(2)}
+              </span>
+            ) : null}
+            <span className="text-[#23856D]">${product.price.toFixed(2)}</span>
+          </div>
+
+          <div className="flex gap-1.5 justify-center mt-auto pb-2">
+            <div className="w-3.5 h-3.5 rounded-full bg-primary-blue"></div>
+            <div className="w-3.5 h-3.5 rounded-full bg-success-green"></div>
+            <div className="w-3.5 h-3.5 rounded-full bg-alert-orange"></div>
+            <div className="w-3.5 h-3.5 rounded-full bg-dark-blue"></div>
+          </div>
         </div>
       </div>
     </Link>
-    </section>
   );
 };
 

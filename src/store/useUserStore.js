@@ -1,19 +1,34 @@
 import { create } from 'zustand';
+import { axiosInstance } from '../api/axiosInstance';
 
 const useUserStore = create((set) => ({
   user: null,
   token: null,
   isLoggedIn: false,
 
-  // Login olduğunda hem user hem token set edilecek
-  setUser: (userData, token) => {
-    set({ user: userData, token: token, isLoggedIn: true });
-    if (token) {
-      localStorage.setItem('token', token);
-    }
+  setUser: (userData) => set({ 
+    user: userData, 
+    isLoggedIn: !!userData 
+  }),
+
+  //registeration post isteği
+  registerUser: async (formData) => {
+    try {
+      const response = await axiosInstance.post('/auth/signup', formData);
+      return response.data;
+    } catch (err) { console.error(err); }
   },
 
-  // Logout veya Token geçersizse temizle
+  loginUser: async (credentials) => {
+    try {
+      const response = await axiosInstance.post('/auth/login', credentials);
+      const { token, ...userData } = response.data;
+      
+      localStorage.setItem('token', token); // Store Token
+      set({ user: userData, isLoggedIn: true }); // Store User Data
+    } catch (err) { console.error("Login failed", err); }
+  },
+
   logout: () => {
     set({ user: null, token: null, isLoggedIn: false });
     localStorage.removeItem('token');

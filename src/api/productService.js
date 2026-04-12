@@ -5,3 +5,4 @@ export const fetchProducts = async (categoryId = null) => {
   const response = await axiosInstance.get(endpoint);
   return response.data;
 };
+

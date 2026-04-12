@@ -8,11 +8,11 @@ const ShopCategories = () => {
   const categories = Array(5).fill().map((cat, index) => {
     switch (index) {
       case 0:
-        return { ...cat, title: "CLOTHS", count: "5 Items", img: cat1 };
+        return { ...cat, title: "WOMEN", count: "5 Items", img: cat1 };
       case 1:
-        return { ...cat, title: "ELECTRONICS", count: "5 Items", img: cat2 };
+        return { ...cat, title: "MEN", count: "5 Items", img: cat2 };
       case 2:
-        return { ...cat, title: "HOME & KITCHEN", count: "5 Items", img: cat3 };
+        return { ...cat, title: "CHILDREN", count: "5 Items", img: cat3 };
       case 3:
         return { ...cat, title: "BEAUTY", count: "5 Items", img: cat4 };
       case 4:
