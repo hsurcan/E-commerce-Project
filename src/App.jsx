@@ -16,7 +16,7 @@ import Team from "./pages/Team";
 import LoginPage from "./pages/Login/LoginPage";
 import ProfilePage from "./pages/Login/ProfilePage";
 import Product from "./pages/Product";
-import ShoppingCart from "./pages/shoppingCart";
+import ShoppingCart from "./pages/ShoppingCart";
 import CreateOrder from "./pages/Orders/CreateOrder";
 import Favorites from "./pages/Favorites";
 import SignupPage from "./pages/Login/SignupPage";
